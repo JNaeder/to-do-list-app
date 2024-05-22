@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
+import NewToDoModal from "./components/NewToDoModal";
 import { ToDoItem } from "./types/ToDoItem";
 
 import { initializeApp } from "firebase/app";
@@ -20,6 +21,7 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const [todos, setTodos] = useState<ToDoItem[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -35,7 +37,8 @@ function App() {
   }, []);
 
   const addTodo = () => {
-    console.log("Add todo");
+    console.log("Open ToDo modal");
+    setModalOpen(true);
   };
 
   return (
@@ -47,6 +50,7 @@ function App() {
           <TodoItem key={i} todoItem={todo} />
         ))}
       </ul>
+      <NewToDoModal modalOpen={modalOpen} />
     </div>
   );
 }
