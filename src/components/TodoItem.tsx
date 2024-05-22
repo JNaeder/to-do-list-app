@@ -2,9 +2,9 @@ import { ToDoItem } from "../types/ToDoItem";
 
 export default function TodoItem({ todoItem }: { todoItem: ToDoItem }) {
   return (
-    <li>
+    <div className="todoItem">
       <h3>{todoItem.title}</h3>
-      <p>{todoItem.notes}</p>
-    </li>
+      {/* <p>{todoItem.notes}</p> */}
+    </div>
   );
 }

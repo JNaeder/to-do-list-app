@@ -5,8 +5,7 @@
   text-align: center;
 }
 
-.modal {
-  /* display: none; */
+.modal-background {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -15,4 +14,26 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  margin: 10% auto;
+  padding: 20px;
+  width: 40%;
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-bottom: 1px solid #ccc;
+  background-color: #ccc;
+  margin: 0.5rem;
+  padding: 1rem;
+  color: black;
+  border-radius: 10px;
 }
