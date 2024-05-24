@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
-import { ToDoItem } from "../types/ToDoItem";
+import { ToDoItem } from "../types";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCEOjKZhvmjHOMM90acWNOP_MWZTIPOIgM",

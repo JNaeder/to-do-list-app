@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import TodoItem from "./components/TodoItem";
 import NewToDoModal from "./components/NewToDoModal";
-import { ToDoItem } from "./types/ToDoItem";
+import { ToDoItem } from "./types";
 import { fetchTodos } from "./api/api";
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
   }, []);
 
   const addTodo = () => {
-    console.log("Open ToDo modal");
     setModalOpen(true);
   };
 

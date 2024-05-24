@@ -33,6 +33,11 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
 }
 
 button {
@@ -52,4 +57,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input[type="text"] {
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  /* background-color: #1a1a1a; */
+  /* color: #646cff; */
 }

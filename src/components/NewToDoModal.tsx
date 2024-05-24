@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { addTodo } from "../api/api";
 
 export default function NewToDoModal({
@@ -10,6 +10,7 @@ export default function NewToDoModal({
 }) {
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -25,12 +26,29 @@ export default function NewToDoModal({
     closeModal();
   };
 
+  const clickOutside = (e: MouseEvent) => {
+    if (!modalRef.current?.contains(e.target as Node)) {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    if (modalOpen) {
+      document.addEventListener("mousedown", clickOutside);
+    } else {
+      document.removeEventListener("mousedown", clickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", clickOutside);
+    };
+  }, [modalOpen]);
+
   return (
     <div>
       {modalOpen && (
         <div className="modal-background">
-          <div className="modal">
-            <h3>New Item</h3>
+          <div className="modal" ref={modalRef}>
+            <h3>Add New To Do Item</h3>
             <label htmlFor="title">Title</label>
             <input
               type="text"
